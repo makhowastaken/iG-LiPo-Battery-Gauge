@@ -28,12 +28,12 @@ LED Board
 * 10x 10k SMT 0805 resistors (or 0603, both fit fine)
 * 10x 1206 SMT LEDs in whatever color you want
 
-Main Board
+Main Board -- all resistor and capacitor pads are sized for 0603 components but are slightly oversized for hand soldering and will take a 0805 component on a whim. 
 * 3x 0603 0.1uF capacitors
 * 1x 10K 0603 resistor (R6)
 * 1x 320K 0603 resistor (R7) (though the firmware I uploaded is for if you use a 300k resistor instead)
 * 1x 1M 0603 resistor (R2)
-* 1x ATTINY48 VQFN-28 package. 
+* 1x ATTINY48 VQFN-28 package for Alex's board or QFP-32 for my board 
 
 ## Firmware 
 
@@ -44,3 +44,14 @@ Editing the firmware? Good luck. I added comments for the SP version of the firm
 As far as flashing the firmware goes, I used avrdude, a USBasp, and Windows for that. I used zadig to install the libusb-win32 driver for my USBasp instead of the default one Windows installs. Otherwise, avrdude won't recognize the USBasp. Once setup, you'll need to download avrdude and the main.hex file from the insideGadgets repo or my repo and run the following command: .\avrdude.exe -c usbasp -p attiny48 -u -U flash:w:main.hex and you'll probably have to add some lines to your avrdude.conf file just to get it flash an attiny48. This worked for me: https://lists.nongnu.org/archive/html/avrdude-dev/2009-08/msg00005.html
 
 I've also attached my avrdude.conf file for reference. It needs to be in the same directory as avrdude to work. 
+
+## Installation
+
+Assemble the boards, flash the firmware, TEST FIT your preferred location, then stick both boards down. You'll have to connect the LED board to the main board with 11 wires (10 LED, 1 common ground). I know this sounds obvious, but don't forget to account for the thickness of wire. 30 AWG solid core works fine for this though thinner might be better. Sorry for the vague instructions but connecting the two boards is a subjective process. My video linked earlier shows how I did it.
+
+You'll also need to connect the main board to the Game Boy with three wires. B- goes either directly on the negative battery terminal or the system ground. If there is a diode between your battery and the GBA on the battery terminal, the wire needs to go directly to the battery or the voltage will not measure correctly. B+ goes directly on the positive battery terminal though you can also connect it directly to the system fuse instead to protect the input of the gauge board if your diode is on the ground side. Lastly, the reference wire needs to be connected to the system power so that it is powered only when the system is on. The best spot is one of the two common pins on the power switch. Please see the diagram below for one such method of wiring up this board.
+
+![GBA](images/GBA.png)
+(base image from https://gbhwdb.gekkio.fi/consoles/agb/)
+
+Keep in mind that there is no diode on this diagram. The B+ or B- wire **must** go on the battery side of the diode. 
