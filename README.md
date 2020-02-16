@@ -52,6 +52,7 @@ Assemble the boards, flash the firmware, TEST FIT your preferred location, then 
 You'll also need to connect the main board to the Game Boy with three wires. B- goes either directly on the negative battery terminal or the system ground. If there is a diode between your battery and the GBA on the battery terminal, the wire needs to go directly to the battery or the voltage will not measure correctly. B+ goes directly on the positive battery terminal though you can also connect it directly to the system fuse instead to protect the input of the gauge board if your diode is on the ground side. Lastly, the reference wire needs to be connected to the system power so that it is powered only when the system is on. The best spot is one of the two common pins on the power switch. Please see the diagram below for one such method of wiring up this board.
 
 ![GBA](images/GBA.png)
+
 (base image from https://gbhwdb.gekkio.fi/consoles/agb/)
 
 Keep in mind that there is no diode on this diagram. The B+ or B- wire **must** go on the battery side of the diode. 
