@@ -15,7 +15,7 @@ I've uploaded the tweaked EAGLE BRD file and uploaded the exported gerbers if yo
 ## Main Board
 
 I recreated the original main board for use with a different size ATTINY. This is functionally identical to Alex's board and other than the ATTINY, it uses the exact same parts. You can also solder resistors and LEDs straight to this board but I think some tweaks to this board would make that a lot easier. 
-[Order the LED board here](https://oshpark.com/shared_projects/lczB1jHZ)
+[Order the LED board here](https://oshpark.com/shared_projects/5IOiieSn)
 
 ![front](images/MB_f.png)
 ![back](images/MB_b.png)
